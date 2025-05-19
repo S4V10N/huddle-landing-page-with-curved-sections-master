@@ -21,7 +21,7 @@ body{
     text-wrap: wrap;
 }
 img{
-    max-width: 75%;
+    max-width: 55%;
 }
 header{
     display: flex;
@@ -31,7 +31,8 @@ header{
 }
 header img{
     width: 11rem;
-    height: 1.8rem;
+    max-width: 15rem;
+    height: auto;
     transform: translateX(20%);
 }
 header div{
@@ -54,11 +55,11 @@ header div:hover,header div:active{
 h1,.text-box h2{
     font-family: "Open Sans", serif;
     font-weight: bold;
-    font-size: 2rem;
-    width: 26rem;
+    font-size: 2.5rem;
+    width: 30rem;
     margin: 0 auto 2.5rem auto;
 }
-.intro :nth-child(2),.curved-sections p{
+.intro-nth-child-2,.curved-sections p{
     font-size: 1.4rem;
     width: 34rem;
     margin: auto;
@@ -92,7 +93,7 @@ img[alt="screen-mockups"]{
     margin: 0 auto 8rem auto;
 }
 .box img{
-    width: 30px;
+    width: 4rem;
     transform: translateX(-60px);
 }
 .box :nth-child(2){
@@ -111,13 +112,12 @@ img[alt="screen-mockups"]{
     background-color: var(--VERY-PALE-BLUE);
     margin-bottom: 16rem;
 }
-.section-one :nth-child(1){
-    max-width: 100%;
-}
+
 .top-img{
     width: 100%;
     max-width: 100%;
-    transform: translateY(-10.5rem);
+    height: 10rem;
+    transform: translateY(-10rem);
 }
 .none{
     width: 100%;
@@ -126,6 +126,7 @@ img[alt="screen-mockups"]{
 .bottom-img{
     transform: translateY(5rem);
     max-width: 100%;
+    height: 5rem;
     width: 100%;
 }
 .section h2{
@@ -154,7 +155,7 @@ img[alt="screen-mockups"]{
     background-color: var(--VERY-PALE-BLUE);
 }
 .section-two div img{
-    width: 75%;
+    width: 55%;
 }
 .text-box h2{
     margin: 6rem auto -1rem auto;
@@ -252,27 +253,33 @@ footer{
 .hide{
     display: none;
 }
+p {
+    line-height: 1.4em;
+    font-size: 1.5rem;
+}
 @media (min-width: 600px) {
     .section-one{
-        background-color: white;
+        background-color: var(--VERY-PALE-BLUE);
     }
     .section-one div h2{
         text-wrap: nowrap;
         width: fit-content;
     }
     .section-two div{
-        background-color: white;
+        background-color: var(--VERY-PALE-BLUE);
         width: 100%;
     }
     .section-one{
-        height: 65rem;
+        height: max-content;
     }
     .top-img{
-        width: 0;
-        transform: translateY(10.5rem);
+        transform: translateY(-10rem);
     }
-    .none, .bottom-img, .top-img{
-        display: none;
+    .bottom-img {
+        max-height: 10rem;
+    }
+    .intro-nth-child-2 {
+        font-size: 1.6rem;
     }
     .contact-form p,.contact-info p{
         width: 65%;
@@ -280,11 +287,43 @@ footer{
     .footer-img{
         transform: translateY(4px);
     }
+    .contact-form h3 {
+        font-size: 2.5rem;
+    }
     .contact-form input[type="submit"]{
         width: 35%;
+    
+    h1 {
+        width: 35rem;
     }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
+    header img {
+        width: 13.5rem;
+    }
+    h1 {
+        font-size: 3.5rem;
+        width: max-content;
+    }
+    img[alt="screen-mockups"] {
+        max-width: 40.5%;
+    }
+    .big-box {
+        max-width: 60rem;
+    }
+    .big-box h2 {
+        font-size: 3.2rem;
+
+        width: fit-content;
+    }
+
+    .intro-nth-child-2 {
+        font-size: 1.8rem;
+        width: 38rem;
+    }
+    .box :nth-child(2) {
+        margin: 0;
+    }
     .big-box{
         display: flex;
         align-items: center;
@@ -294,13 +333,16 @@ footer{
     }
     .box{
         margin: 0 0 0 0;
+        width: 25rem;
+    }
+    .box p {
+        font-size: 1.6rem;
+    }
+    .intro {
+        margin-bottom: 20rem;
     }
     .wrap{
         width: max-content;
-    }
-    .big-box :nth-child(2){
-        margin: 0;
-        width: fit-content;
     }
     .section img{
         width: 45rem;
@@ -340,8 +382,8 @@ footer{
     .section-one,.section-two,.section-two div{
         background-color: var(--VERY-PALE-BLUE);
     }
-    .curved-sections{
-        margin-top: 22rem;
+    .top-img{
+        display: none;
     }
     .text-box h2{
         width: max-content;
@@ -349,6 +391,9 @@ footer{
     }
     .text-box{
         margin-bottom: 8rem;
+        height: 25rem;
+        display: grid;
+        place-content: center;
     }
     .footer-img{
         display: none;
@@ -356,6 +401,9 @@ footer{
     .contact-section{
         flex-direction: row;
         padding: 0 8%;
+    }
+    .bottom-img , .none{
+        display: none;
     }
     .contact-info{
         padding: 0;
@@ -383,23 +431,21 @@ footer{
         width: 30rem;
     }
     .section-one{
-        height: 55rem;
+        height: max-content;
         position: relative;
     }
     .hide{
         display: block;
     }
     .section .desktop-one{
-        top: 0;
-        left: 0;
-        right: 0;
-        position: absolute;
         max-width: 100%;
-        width: 100%;
-        
-        height: auto;
         object-fit: cover;
-        transform: translateY(clamp(-115px,-10%,-558px));
+        position: absolute;
+        top: -16.5rem;
+        width: 100vw;
+        height: auto;
+        left: 0;
+        z-index: -1;
     }
     .section .desktop-two{
         position: absolute;
@@ -408,11 +454,11 @@ footer{
         width: 100%;
         max-width: 100%;
         object-fit: cover;
-        max-height: 10.2rem;
-        transform: translateY(9.6rem);
+        max-height: 16.5rem;
+        transform: translateY(13.5rem);
+        z-index: -2;
     }
     .section-two{
-        height: 50rem;
         position: relative;
     }
     .section-two .desktop-three{
@@ -422,29 +468,39 @@ footer{
         position: absolute;
         width: 100%;
         max-width: 100%;
-        max-height: 8rem;
+        max-height: auto;
         object-fit: cover;
-        transform: translateY(-8rem);
+        transform: translateY(-15.6rem);
     }
     .section-two .desktop-four{
         position: absolute;
-        bottom: 0;
+        bottom: -14.5rem;
         right: 0;
         width: 100%;
         max-width: 100%;
         object-fit: cover;
-        max-height: 9.7rem;
-        transform: translateY(9.7rem);
+        height: 15rem;
+    }
+    .section {
+        min-height: 45rem;
+    }
+    .section div h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    .section div p {
+        font-size: 1.8rem;
     }
     .desktop-five{
         max-width: 100%;
         width: 100%;
         transform: translateY(4px);
     }
-    .text-box{
-        margin-top: 18rem;
+    .section-two {
+        margin-bottom: 18rem;
     }
-    .intro,.big-box{
+    .big-box{
         margin-bottom: 0;
     }
+}
 }
